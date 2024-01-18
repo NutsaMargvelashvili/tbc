@@ -1,22 +1,26 @@
+/* Creating custom fonts */
 @font-face {
-    font-family: 'CustomFont';
-    src: url('../../fonts/Font.woff2') format('woff2');
+    font-family: 'CustomFont2';
+    src: url('../../fonts/Font2.woff2') format('woff2');
 }
 
+@font-face {
+    font-family: 'CustomFont3';
+    src: url('../../fonts/Font3.woff2') format('woff2');
+}
 
 /* Define CSS variables */
 :root {
     --primary-color: #00AEF3;
     --secondary-color: #212121;
     --lighter-secondary-color: #2B2B2B;
-    --white: #ffffff;
+    --white: #f4f4f4;
 }
 
 /* Reset default margin and padding */
 body, h1, h2, p, ul, li {
     margin: 0;
     padding: 0;
-    font-family: 'CustomFont', Arial, Helvetica, sans-serif;
 }
 
 /* Apply box-sizing reset */
@@ -79,6 +83,7 @@ body, h1, h2, p, ul, li {
     line-height: 26px;
     font-size: 14px;
     transition: 400ms ease;
+    font-family: 'CustomFont2', Arial, Helvetica, sans-serif;
 }
 
 .header .nav ul li a.active {
@@ -87,4 +92,32 @@ body, h1, h2, p, ul, li {
 
 .header .nav ul li a:hover {
     color: var(--primary-color);
+}
+
+/********************/
+/* Style the FIRST SECTION */
+/********************/
+
+.first-section {
+    position: relative;
+}
+
+.first-section .caption {
+    position: absolute;
+    margin: 96px 0 10px calc((100% - 996px) * 0.5);
+    color: var(--white);
+    letter-spacing: 0;
+    font-weight: bold;
+    font-family: 'CustomFont3', Arial, Helvetica, sans-serif;
+}
+
+.first-section .caption h2 {
+    font-size: 42px;
+    line-height: 1.6em;
+    margin-bottom: 10px;
+}
+
+.first-section .caption p {
+    font-size: 34px;
+    line-height: 1.6em;
 }
