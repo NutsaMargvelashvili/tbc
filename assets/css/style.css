@@ -22,8 +22,9 @@
 /* Define CSS variables */
 :root {
     --primary-color: #00AEF3;
-    --secondary-color: #212121;
+    --secondary-color: #1A1E1F;
     --lighter-secondary-color: #2B2B2B;
+    --darker-secondary-color: #161616;
     --white: #f4f4f4;
 }
 
@@ -181,4 +182,91 @@ body, h1, h2, p, ul, li {
 .second-section button:hover {
     color: var(--white);
     opacity: 0.6;
+}
+
+/********************/
+/* Style the THIRD SECTION */
+/********************/
+
+.third-section {
+    background: var(--darker-secondary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 34px 24% 58px;
+    font-family: 'CustomFont2', Arial, Helvetica, sans-serif;
+}
+
+.third-section .section-caption {
+    color: var(--white);
+    opacity: 0.8;
+    margin-bottom: 67px;
+    font-weight: 100;
+    width: 100%;
+}
+
+.courses {
+    display: grid;
+    grid-template-columns: repeat( auto-fill, 300px);
+    grid-row-gap: 25px;
+    grid-column-gap: 40px;
+    width: 100%;
+}
+
+.course {
+    border-width: 1px 1px 1px 1px;
+    border-style: solid solid solid solid;
+    border-color: rgba(85, 85, 85, 1) rgba(85, 85, 85, 1) rgba(85, 85, 85, 1) rgba(85, 85, 85, 1);
+    border-radius: 6px 6px 6px 6px;
+}
+
+.course img {
+    border-radius: inherit;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.course .course-description {
+    padding: 34px 21px 21px;
+    height: 266px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.course .course-description p, .course .course-description h2 {
+    color: var(--white);
+}
+
+.course .course-description h2 {
+    margin-bottom: 25px;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.course .course-description p {
+    flex-grow: 1;
+    font-size: 15px;
+}
+
+.course .course-description button {
+    border: none;
+    background-color: transparent;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.course .course-description button span {
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.course .course-description button span:hover {
+    transition: 400ms ease;
+    opacity: 0.7;
 }
