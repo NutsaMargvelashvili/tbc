@@ -9,6 +9,16 @@
     src: url('../../fonts/Font3.woff2') format('woff2');
 }
 
+@font-face {
+    font-family: 'CustomFont4';
+    src: url('../../fonts/Font4.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'CustomFont4';
+    src: url('../../fonts/Font4.woff2') format('woff2');
+}
+
 /* Define CSS variables */
 :root {
     --primary-color: #00AEF3;
@@ -37,12 +47,13 @@ body, h1, h2, p, ul, li {
     color: var(--white);
     padding: 11px; /* Adjust the padding as needed */
     text-align: center;
-    position: static;
+    position: fixed;
     width: 100%;
     min-height: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     height: auto;
+    z-index: 10;
 }
 
 .header .logo-container {
@@ -53,7 +64,7 @@ body, h1, h2, p, ul, li {
 }
 
 .header .logo-container img {
-    margin-left: 136px;
+    margin-left: 145px;
     width: 182px;
     height: 40px;
     cursor: pointer;
@@ -62,7 +73,7 @@ body, h1, h2, p, ul, li {
 /* Style the navigation */
 .header .nav {
     padding: 0 11px;
-    margin-left: 42px;
+    margin-left: 49px;
     display: flex;
     align-items: center;
 }
@@ -98,13 +109,18 @@ body, h1, h2, p, ul, li {
 /* Style the FIRST SECTION */
 /********************/
 
+.main {
+    padding-top: 84px;
+}
+
 .first-section {
     position: relative;
+    height: 352px;
 }
 
 .first-section .caption {
     position: absolute;
-    margin: 96px 0 10px calc((100% - 996px) * 0.5);
+    margin: 96px 0 10px calc((100% - 980px) * 0.5);
     color: var(--white);
     letter-spacing: 0;
     font-weight: bold;
@@ -120,4 +136,49 @@ body, h1, h2, p, ul, li {
 .first-section .caption p {
     font-size: 34px;
     line-height: 1.6em;
+}
+
+.first-section img {
+    width: 100%;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+/********************/
+/* Style the SECOND SECTION */
+/********************/
+
+.second-section {
+    background: var(--lighter-secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 56px;
+
+}
+
+.second-section .description p {
+    color: var(--white);
+    font-family: 'CustomFont2', Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    max-width: 959px;
+    padding-bottom: 43px;
+}
+
+.second-section button {
+    border: none;
+    background: transparent;
+    color: var(--primary-color);
+    font-size: 20px;
+    font-family: 'CustomFont4', Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    transition: 400ms ease;
+}
+
+.second-section button:hover {
+    color: var(--white);
+    opacity: 0.6;
 }
