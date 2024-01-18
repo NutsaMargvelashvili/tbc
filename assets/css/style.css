@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../../fonts/Font.woff2') format('woff2');
+}
+
+
+/* Define CSS variables */
+:root {
+    --primary-color: #00AEF3;
+    --secondary-color: #212121;
+    --lighter-secondary-color: #2B2B2B;
+    --white: #ffffff;
+}
+
+/* Reset default margin and padding */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+    font-family: 'CustomFont', Arial, Helvetica, sans-serif;
+}
+
+/* Apply box-sizing reset */
+* {
+    box-sizing: border-box;
+}
+
+/********************/
+/* Style the HEADER */
+/********************/
+
+.header {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 11px; /* Adjust the padding as needed */
+    text-align: center;
+    position: static;
+    width: 100%;
+    min-height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+}
+
+.header .logo-container {
+    padding: 11px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.header .logo-container img {
+    margin-left: 136px;
+    width: 182px;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* Style the navigation */
+.header .nav {
+    padding: 0 11px;
+    margin-left: 42px;
+    display: flex;
+    align-items: center;
+}
+
+.header .nav ul {
+    display: flex;
+    gap: 29px;
+}
+
+.header .nav ul li {
+    list-style-type: none;
+    padding: 10px;
+}
+
+.header .nav ul li a {
+    text-decoration: none;
+    color: var(--white);
+    line-height: 26px;
+    font-size: 14px;
+    transition: 400ms ease;
+}
+
+.header .nav ul li a.active {
+    color: var(--primary-color);
+}
+
+.header .nav ul li a:hover {
+    color: var(--primary-color);
+}
