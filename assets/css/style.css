@@ -200,7 +200,7 @@ body, h1, h2, p, ul, li {
 
 .third-section .section-caption {
     color: var(--white);
-    opacity: 0.8;
+    opacity: 0.9;
     margin-bottom: 67px;
     font-weight: 100;
     width: 100%;
@@ -269,4 +269,96 @@ body, h1, h2, p, ul, li {
 .course .course-description button span:hover {
     transition: 400ms ease;
     opacity: 0.7;
+}
+
+/********************/
+/* Style the FOURTH SECTION */
+/********************/
+
+.fourth-section {
+    background-color: var(--lighter-secondary-color);
+    padding: 31px 100px 36px;
+
+}
+
+.fourth-section .section-caption {
+    color: var(--white);
+    opacity: 0.9;
+    margin-bottom: 67px;
+    font-weight: 100;
+    margin-left: 22%;
+}
+
+.carousel-wrapper {
+    display: flex;
+    justify-content: space-between;
+    min-height: 100px;
+}
+
+.carousel-btn {
+    border: none;
+    background-color: transparent;
+}
+
+.carousel-btn img {
+    width: 18px;
+    height: 36px;
+    cursor: pointer;
+}
+
+.carousel-btn.right-arrow-btn img {
+    transform: rotateY(3.142rad);
+}
+
+.carousel {
+    display: flex;
+    column-gap: 100px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-width: 950px;
+}
+
+.carousel .item {
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 5s ease, opacity 5s ease;
+    position: absolute;
+    width: 250px;
+    display: flex;
+}
+
+.carousel .item.active:nth-child(1), .carousel .item:nth-child(1) {
+    left: 0;
+}
+
+.carousel .item.active:nth-child(2), .carousel .item:nth-child(2) {
+    left: 350px;
+}
+
+.carousel .item.active:nth-child(3), .carousel .item:nth-child(3) {
+    left: 700px;
+}
+
+.carousel .item.active {
+    margin-right: 0;
+    visibility: visible;
+    opacity: 1;
+    position: absolute;
+    text-align: center;
+}
+
+.carousel-dots {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+.carousel-dots .dot {
+    width: 7px;
+    height: 7px;
+    background-color: var(--white);
+    border-radius: 50%;
 }
