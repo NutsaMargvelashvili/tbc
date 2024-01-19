@@ -5,6 +5,8 @@ const carouselLeftArrow = document.getElementsByClassName("left-arrow-btn")[0];
 const carouselRightArrow =
   document.getElementsByClassName("right-arrow-btn")[0];
 const carouselDots = document.getElementsByClassName("carousel-dots")[0];
+const accordion = document.getElementsByClassName("accordion")[0];
+const accordionItems = document.querySelectorAll(".accordion-item");
 
 // The number of courses
 const numberOfCourses = 9;
@@ -79,7 +81,7 @@ const movePrevSlide = () => {
 };
 const carouselInterval = setInterval(() => {
   moveNextSlide();
-}, 5000);
+}, 10000);
 
 // On right arrow click
 carouselRightArrow.addEventListener("click", () => {
@@ -89,4 +91,28 @@ carouselRightArrow.addEventListener("click", () => {
 // On Left arrow click
 carouselLeftArrow.addEventListener("click", () => {
   movePrevSlide();
+});
+
+//////////////////////////////////////////////
+
+// Event delegation
+accordion.addEventListener("click", (e) => {
+  // Click event
+  e.preventDefault();
+  if (!e.target.closest(".question")) return; // guard clause
+  // Close every accordion
+  accordionItems.forEach((item) => {
+    item.querySelector(".answer").classList.add("hidden");
+    item.querySelector("img").style.transform = "rotate(0deg)";
+  });
+
+  const answer = e.target.closest(".accordion-item")?.querySelector(".answer");
+  const arrow = e.target.closest(".accordion-item")?.querySelector("img");
+  if (answer) answer.classList.toggle("hidden");
+  if (arrow) {
+    const currentRotation = arrow.style.transform.replace(/[^0-9\-.,]/g, ""); // Extract current rotation value
+    arrow.style.transform = currentRotation
+      ? `rotate(${parseFloat(currentRotation) + 180}deg)`
+      : "rotate(180deg)";
+  }
 });

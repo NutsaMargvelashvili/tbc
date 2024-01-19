@@ -272,7 +272,7 @@ body, h1, h2, p, ul, li {
 }
 
 /********************/
-/* Style the FOURTH SECTION */
+/* Style the FOURTH SECTION (carousel) */
 /********************/
 
 .fourth-section {
@@ -362,3 +362,86 @@ body, h1, h2, p, ul, li {
     background-color: var(--white);
     border-radius: 50%;
 }
+
+/********************/
+/* Style the FIFTH SECTION (accordion) */
+/********************/
+
+.fifth-section {
+    background-color: var(--darker-secondary-color);
+    padding: 105px 62px 62px 62px;
+    display: flex;
+    justify-content: center;
+    font-family: 'CustomFont2', Arial, Helvetica, sans-serif;
+    color: var(--white);
+}
+
+.accordion {
+    width: 900px;
+}
+
+.accordion .section-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.accordion .section-header button {
+    background-color: transparent;
+    border: none;
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.accordion .section-header h2 {
+    opacity: 0.9;
+    font-size: 24px;
+    font-weight: 100;
+}
+
+.accordion-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.accordion-item .question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    height: 80px;
+    cursor: pointer;
+}
+
+.accordion-item .question span {
+    font-size: 18px;
+}
+
+.accordion-item .question img {
+    height: 24px;
+    width: 24px;
+}
+
+.accordion-item .answer {
+    font-size: 14px;
+    line-height: 2;
+    padding-bottom: 35px;
+}
+
+.hidden {
+    display: none;
+}
+
+.accordion .answer .shifted {
+    margin: 21px;
+}
+
+.accordion .answer .shifted p {
+    margin: 3px;
+}
+
+/********************/
+/* General Styles */
+/********************/
