@@ -7,6 +7,7 @@ const carouselRightArrow =
 const carouselDots = document.getElementsByClassName("carousel-dots")[0];
 const accordion = document.getElementsByClassName("accordion")[0];
 const accordionItems = document.querySelectorAll(".accordion-item");
+const header = document.getElementsByClassName("header")[0];
 
 // The number of courses
 const numberOfCourses = 9;
@@ -115,4 +116,13 @@ accordion.addEventListener("click", (e) => {
       ? `rotate(${parseFloat(currentRotation) + 180}deg)`
       : "rotate(180deg)";
   }
+});
+
+////////////////////////////////////////
+
+// As you scroll, increase header's opacity
+
+document.addEventListener("scroll", () => {
+  const scrollPosition = window.scrollY;
+  header.style.opacity = scrollPosition > 0 ? "0.9" : "1";
 });

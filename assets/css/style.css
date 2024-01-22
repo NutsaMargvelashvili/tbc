@@ -55,6 +55,7 @@ body, h1, h2, p, ul, li {
     grid-template-columns: repeat(2, 1fr);
     height: auto;
     z-index: 10;
+    transition: 400ms ease;
 }
 
 .header .logo-container {
