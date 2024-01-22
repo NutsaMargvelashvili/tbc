@@ -493,6 +493,13 @@ body, h1, h2, p, ul, li {
     width: 162px;
     color: var(--white);
     font-size: 16px;
+    cursor: pointer;
+    transition: 400ms ease;
+}
+
+.footer-container .contact .message-us:hover {
+    background-color: var(--white);
+    color: var(--darker-secondary-color);
 }
 
 .footer-container .contact .social {
@@ -505,6 +512,7 @@ body, h1, h2, p, ul, li {
     border: none;
     padding: 0;
     background-color: transparent;
+    cursor: pointer;
 }
 
 /********************/
