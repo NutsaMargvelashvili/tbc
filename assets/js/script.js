@@ -13,7 +13,7 @@ const header = document.getElementsByClassName("header")[0];
 const numberOfCourses = 9;
 
 // The course
-const course = `
+const courseTemplate = `
             <div class="course">
 
             <img
@@ -37,7 +37,7 @@ const course = `
 
 for (let i = 0; i < numberOfCourses; i++) {
   // Append the new course to the course container
-  courses.insertAdjacentHTML("afterbegin", course);
+  courses.insertAdjacentHTML("afterbegin", courseTemplate);
 }
 
 //////////////////////////////////////////////
@@ -45,18 +45,19 @@ for (let i = 0; i < numberOfCourses; i++) {
 const CAROUSEL_MAX_ITEM_NUM = Math.ceil(carouselItems.length / 3) * 3; // If all pages were fulled with items.
 let firstActiveItem = 0 % CAROUSEL_MAX_ITEM_NUM;
 
-// Create three div elements with the class "dot"
+// Create dots for the carousel
 for (let i = 0; i < carouselItems.length / 3; i++) {
   const dot = document.createElement("div");
   dot.classList.add("dot");
   carouselDots.appendChild(dot);
 }
 
+// Move to the next slide in the carousel
 const moveNextSlide = () => {
   firstActiveItem = (firstActiveItem + 3) % CAROUSEL_MAX_ITEM_NUM;
 
   // Move carousel
-  Array.from(carouselItems).forEach(function (item, i) {
+  carouselItems.forEach((item, i) => {
     item.classList.remove("active");
     if (i >= firstActiveItem && i < firstActiveItem + 3) {
       item.classList.add("active");
@@ -66,33 +67,28 @@ const moveNextSlide = () => {
 };
 
 const movePrevSlide = () => {
-  console.log(firstActiveItem, "before", CAROUSEL_MAX_ITEM_NUM);
   firstActiveItem =
     Math.abs(firstActiveItem - 3 + CAROUSEL_MAX_ITEM_NUM) %
     CAROUSEL_MAX_ITEM_NUM;
-  console.log(firstActiveItem, "after");
 
   // Move carousel
-  Array.from(carouselItems).forEach(function (item, i) {
+  carouselItems.forEach((item, i) => {
     item.classList.remove("active");
     if (i >= firstActiveItem && i < firstActiveItem + 3) {
       item.classList.add("active");
     }
   });
 };
+
 const carouselInterval = setInterval(() => {
   moveNextSlide();
 }, 10000);
 
 // On right arrow click
-carouselRightArrow.addEventListener("click", () => {
-  moveNextSlide();
-});
+carouselRightArrow.addEventListener("click", moveNextSlide);
 
 // On Left arrow click
-carouselLeftArrow.addEventListener("click", () => {
-  movePrevSlide();
-});
+carouselLeftArrow.addEventListener("click", movePrevSlide);
 
 //////////////////////////////////////////////
 
@@ -123,6 +119,5 @@ accordion.addEventListener("click", (e) => {
 // As you scroll, increase header's opacity
 
 document.addEventListener("scroll", () => {
-  const scrollPosition = window.scrollY;
-  header.style.opacity = scrollPosition > 0 ? "0.9" : "1";
+  header.style.opacity = window.scrollY > 0 ? "0.9" : "1";
 });
