@@ -97,15 +97,19 @@ accordion.addEventListener("click", (e) => {
   // Click event
   e.preventDefault();
   if (!e.target.closest(".question")) return; // guard clause
-  // Close every accordion
-  accordionItems.forEach((item) => {
-    item.querySelector(".answer").classList.add("hidden");
-    item.querySelector("img").style.transform = "rotate(0deg)";
-  });
-
   const answer = e.target.closest(".accordion-item")?.querySelector(".answer");
   const arrow = e.target.closest(".accordion-item")?.querySelector("img");
+  // // Close every accordion
+  accordionItems.forEach((item) => {
+    if (item.querySelector(".answer") !== answer) {
+      item.querySelector(".answer").classList.add("hidden");
+      item.querySelector("img").style.transform = "rotate(0deg)";
+    }
+  });
+
+  // Show answer if it's hidden and hide if it's shown
   if (answer) answer.classList.toggle("hidden");
+
   if (arrow) {
     const currentRotation = arrow.style.transform.replace(/[^0-9\-.,]/g, ""); // Extract current rotation value
     arrow.style.transform = currentRotation
