@@ -8,6 +8,7 @@ const carouselDots = document.getElementsByClassName("carousel-dots")[0];
 const accordion = document.getElementsByClassName("accordion")[0];
 const accordionItems = document.querySelectorAll(".accordion-item");
 const header = document.getElementsByClassName("header")[0];
+const menu = document.getElementById("nav-icon");
 
 // The number of courses
 const numberOfCourses = 9;
@@ -54,6 +55,7 @@ for (let i = 0; i < carouselItems.length / 3; i++) {
 
 // Move to the next slide in the carousel
 const moveNextSlide = () => {
+  let screenWidth = window.innerWidth;
   firstActiveItem = (firstActiveItem + 3) % CAROUSEL_MAX_ITEM_NUM;
 
   // Move carousel
@@ -61,7 +63,14 @@ const moveNextSlide = () => {
     item.classList.remove("active");
     if (i >= firstActiveItem && i < firstActiveItem + 3) {
       item.classList.add("active");
-      item.style.left = `${(i - firstActiveItem) * 350}px`;
+
+      if (screenWidth < "1200") {
+        item.style.top = `${(i - firstActiveItem) * 150}px`;
+        item.style.left = "0";
+      } else {
+        item.style.left = `${(i - firstActiveItem) * 350}px`;
+        item.style.top = "0px";
+      }
     }
   });
 };
@@ -124,4 +133,11 @@ accordion.addEventListener("click", (e) => {
 
 document.addEventListener("scroll", () => {
   header.style.opacity = window.scrollY > 0 ? "0.9" : "1";
+});
+
+//////////////////////////////////////////////
+
+// Hamburger menu
+menu.addEventListener("click", (e) => {
+  e.currentTarget.classList.toggle("open");
 });
